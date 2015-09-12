@@ -130,6 +130,8 @@ typedef enum StopWatchState {
     [self.timerButton setTitleColor:[UIColor stopColor] forState:UIControlStateNormal];
     
     [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
+    self.lapButton.enabled = YES;
+        [self.lapButton setTitleColor: [UIColor grayColor]forState:UIControlStateNormal];
 }
 
 - (void)stopTimer {
@@ -173,6 +175,7 @@ typedef enum StopWatchState {
     [self resetMainTimer];
     [self.lapManager reset];
     [self.tableView reloadData];
+
 }
 
 - (void)resetState {
@@ -183,8 +186,9 @@ typedef enum StopWatchState {
     self.mainTimerLabel.text = @"00:00.00";
     self.lapTimerLabel.text = @"00:00.00";
     [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
+    self.lapButton.enabled = NO;
+    [self.lapButton setTitleColor: [UIColor lightGrayColor]forState:UIControlStateNormal];
     [self.timerButton setTitle:@"Start" forState:UIControlStateNormal];
-    
     [self.timerButton setTitleColor:[UIColor startColor] forState:UIControlStateNormal];
 }
 
