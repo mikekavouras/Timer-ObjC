@@ -89,8 +89,6 @@ typedef enum StopWatchState {
     self.lapButton.layer.cornerRadius = 40.0;
     self.tableView.delegate = self.lapManager;
     self.tableView.dataSource = self.lapManager;
-    self.lapButton.enabled = NO;
-    [self.lapButton setTitleColor: [UIColor lightGrayColor]forState:UIControlStateNormal];
 }
 
 #pragma mark IBAction
@@ -177,8 +175,7 @@ typedef enum StopWatchState {
     [self resetMainTimer];
     [self.lapManager reset];
     [self.tableView reloadData];
-    self.lapButton.enabled = NO;
-    [self.lapButton setTitleColor: [UIColor lightGrayColor]forState:UIControlStateNormal];
+
 }
 
 - (void)resetState {
@@ -189,8 +186,9 @@ typedef enum StopWatchState {
     self.mainTimerLabel.text = @"00:00.00";
     self.lapTimerLabel.text = @"00:00.00";
     [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
+    self.lapButton.enabled = NO;
+    [self.lapButton setTitleColor: [UIColor lightGrayColor]forState:UIControlStateNormal];
     [self.timerButton setTitle:@"Start" forState:UIControlStateNormal];
-    
     [self.timerButton setTitleColor:[UIColor startColor] forState:UIControlStateNormal];
 }
 
